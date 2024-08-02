@@ -1,12 +1,12 @@
-# Node Starter Js 💥
-### A simple tool to start your node js project with Power of Express Js.
+# Node Starter Ts 💥
+### A simple tool to start your node js project with Power of Express Js with Tyepscript.
 
 <br> <br>
 
 > Clone this repository and start building your project
 
 ```
-git clone https://github.com/im-tridevsharma/node-starter-js.git
+git clone https://github.com/im-tridevsharma/node-starter-ts.git
 ```
 
 <br>
