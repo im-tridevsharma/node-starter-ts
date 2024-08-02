@@ -29,6 +29,10 @@ npm install
 npm run dev
 ```
 
+<br>
+Now <a href="http://localhost:3000/api/v1/welcome">Test it</a>
+
+
 ## Project Directory Structure
 
 ![image](https://github.com/user-attachments/assets/c3384394-6650-4ca6-932d-ac87bfd04e51)
