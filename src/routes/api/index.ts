@@ -1,8 +1,5 @@
-import dotenv from "dotenv";
 import { Router } from "express";
 import welcomeRouteHandler from "./welcome.routes";
-
-dotenv.config();
 
 const router = Router();
 

@@ -7,6 +7,11 @@ const messages = {
         "The requested resource is not available! Please check your endpoint.",
     },
   },
+
+  //welcome message
+  welcome: {
+    hello: "Hello from welcome routes!"
+  }
 };
 
 export default messages;

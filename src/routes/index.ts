@@ -2,6 +2,7 @@ import httpStatus from "http-status";
 import { Router, Request, Response } from "express";
 import { apiRouterHandler } from "./api";
 import messages from "../config/messages.config";
+import { wrapResponse } from "../utils/response-wrapper";
 
 const router = Router();
 
@@ -12,8 +13,7 @@ router.use(`/api/${currentApiVersion}`, apiRouterHandler);
 
 // Index route
 router.get("/", (req: Request, res: Response) => {
-  return res.status(httpStatus.OK).json({
-    status: "success",
+  wrapResponse(res, {
     statusCode: httpStatus.OK,
     message: messages.app.all_ok,
   });
@@ -21,8 +21,7 @@ router.get("/", (req: Request, res: Response) => {
 
 // 404 handler
 router.use((req: Request, res: Response) => {
-  return res.status(httpStatus.NOT_FOUND).json({
-    status: "failed",
+  wrapResponse(res, {
     statusCode: httpStatus.NOT_FOUND,
     message: messages.app.errors.page_not_found,
   });
