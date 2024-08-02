@@ -2,7 +2,7 @@
 ### A simple tool to start your node js project with Power of Express Js with Tyepscript.
 
 <br> <br>
-
+<a href="https://github.com/im-tridevsharma/node-starter-js.git">Go to Js Version</a>
 > Clone this repository and start building your project
 
 ```
