@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import httpStatus from "http-status";
-import appLogger from "../config/app-logger.config";
+import appLogger from "../../config/app-logger.config";
 
 const applicationErrorHandler = (
   err: Error,

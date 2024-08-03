@@ -26,13 +26,15 @@ import hpp from "hpp";
 import { applicationRouteHandler } from "./routes"; // Main route handler
 
 // Service load
-import applicationErrorHandler from "./services/application-error-handler.service";
+import applicationErrorHandler from "./services/app/application-error-handler.service";
+import connectMongoose from "./services/app/mongoose-connect.service";
 
 // Get all the configs
 import helmetOptions from "./config/helmet.config";
 import rateLimitOptions from "./config/express-rate-limit.config";
 import httpLogger from "./config/http-logger.config";
 import corsOptions from "./config/cors.config";
+import appLogger from "./config/app-logger.config";
 
 // Get all the middlewares
 import responseBodyInterceptor from "./middlewares/response-interceptor.middleware";
@@ -59,7 +61,7 @@ app.use(compression());
 
 // Express middlewares
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json({ limit: "500kb" })); //limit the request data
 app.use(cookieParser());
 
 // XSS middleware
@@ -75,6 +77,9 @@ app.use(expressRateLimit(rateLimitOptions));
 // Response body interceptor middleware
 app.use(responseBodyInterceptor);
 
+//connect to database: mongoose
+connectMongoose();
+
 // Handle all the requests
 app.use(applicationRouteHandler);
 
@@ -86,7 +91,7 @@ const PORT: number = parseInt(process.env.SERVER_PORT || "3000", 10); // Default
 const applicationMode: string = process.env.NODE_ENV || "development";
 
 app.listen(PORT, () => {
-  console.log(
+  appLogger.info(
     `Application is running on port: ${PORT} | Application Mode: ${applicationMode}`
   );
 });
